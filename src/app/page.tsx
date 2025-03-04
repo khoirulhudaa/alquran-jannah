@@ -102,7 +102,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="relative w-full h-max mb-12 bg-white p-6">
+      <section className="relative w-full h-max pb-12 bg-white p-6">
         <div className="grid grid-cols-4 gap-6">
           {data?.map((surah, index) => (
             <Link key={index} href={`/${surah?.number}`}>
