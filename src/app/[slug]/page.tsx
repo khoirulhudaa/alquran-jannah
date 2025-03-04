@@ -24,7 +24,7 @@ export default function Page() {
                 console.log(arabData?.data)
 
                 // Fetch terjemahan (misalnya, bahasa Inggris)
-                const responseText = await fetch(`http://api.alquran.cloud/v1/surah/${slug}/en.asad`);
+                const responseText = await fetch(`https://api.alquran.cloud/v1/surah/${slug}/en.asad`);
                 const textData = await responseText.json();
                 setDataText(textData.data);
             } catch (error) {
@@ -90,7 +90,6 @@ export default function Page() {
             };
         }
     }
-
 
     return (
         <>
