@@ -76,13 +76,13 @@ export default function Home() {
   // Tampilan utama
   return (
     <main className="relative w-full min-h-screen bg-white">
-      <section className="relative w-full h-[78vh] overflow-hidden">
+      <section className="relative w-full h-[50vh] md:h-[78vh] overflow-hidden">
         <div className="relative text-center flex items-center justify-center flex-col w-full h-full z-[999] bg-black/70 text-white">
-          <h1 className="text-[60px] font-bold">Alquran-Jannah</h1>
-          <p className="text-lg">
+          <h1 className="text-[38px] md:text-[60px] font-bold">Alquran-Jannah</h1>
+          <p className="text-[12px] w-[90vw] md:mt-0 mt-6 md:text-lg">
             Beribadah dimanapun dan kapanpun, mempermudah diri untuk mendekat pada Tuhan
           </p>
-          <div className="flex items-center gap-6 w-max mx-auto mt-10">
+          <div className="hidden md:flex items-center gap-6 w-max mx-auto mt-10">
             {data?.slice(0, 4)?.map((surah, index) => (
               <Link key={index} href={`/${surah?.number}`}>
                 <div
@@ -104,8 +104,8 @@ export default function Home() {
         />
       </section>
 
-      <section className="relative w-full h-max pb-12 bg-white p-6">
-        <div className="grid grid-cols-4 gap-6">
+      <section className="relative w-full h-max pb-12 bg-white p-4 md:p-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {data?.map((surah, index) => (
             <Link key={index} href={`/${surah?.number}`}>
               <div className="relative py-6 px-3 rounded-md bg-white text-black border border-black text-[12px] font-normal cursor-pointer active:scale-[0.99] duration-100 hover:bg-green-200 flex items-center justify-center">

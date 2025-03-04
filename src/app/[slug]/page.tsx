@@ -93,9 +93,9 @@ export default function Page() {
 
     return (
         <>
-            <section className="relative w-full h-[78vh] overflow-hidden">
+            <section className="relative w-full h-[55vh] md:h-[78vh] overflow-hidden">
                 <div className="relative text-center flex items-center justify-center flex-col w-full h-full z-[999] bg-black/70">
-                    <h1 className="text-[60px]">{data?.number} - {data?.englishName}</h1>
+                    <h1 className="text-[30px] md:text-[60px]">{data?.number} - {data?.englishName}</h1>
                     <p>Jumlah ayat: {data?.numberOfAyahs} - {data?.name}</p>
                     <div className="flex item-center w-max relative top-6">
                         <Link href={'/'}>
@@ -115,7 +115,7 @@ export default function Page() {
                     objectFit="cover"
                 />
             </section>
-            <section className="relative pt-6 bg-white w-full h-max overflow-hidden">
+            <section className="md:block hidden relative pt-6 bg-white w-full h-max overflow-hidden">
                 {/* Loop untuk setiap pasangan ayat */}
                 {data?.ayahs?.map((ayahArab: any, index: number) => {
                     const ayahText = dataText?.ayahs[index]; // Ambil terjemahan yang sesuai
@@ -159,6 +159,47 @@ export default function Page() {
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    );
+                })}
+            </section>
+
+            {/* Mobile only */}
+            <section className="md:hidden block relative pt-4 bg-white w-full h-max overflow-hidden">
+                {/* Loop untuk setiap pasangan ayat */}
+                {data?.ayahs?.map((ayahArab: any, index: number) => {
+                    const ayahText = dataText?.ayahs[index]; // Ambil terjemahan yang sesuai
+                    return (
+                        <div
+                            key={ayahArab.numberInSurah} // Key unik berdasarkan nomor ayat
+                            className="bg-white flex flex-col border-b-[1px] h-max mb-4 border-b-slate-400 p-4"
+                        >
+                            <div className="relative w-full px-6 text-right h-max">
+                                <div className="absolute flex items-center left-2 top-0 w-max h-max">
+                                    {playingAyah && playingAyah === ayahArab?.numberInSurah ? (
+                                        <PauseIcon
+                                            className="w-8 h-8 p-1 border border-black text-black rounded-full"
+                                            onClick={() => handlePlayAudio(ayahArab?.audio, ayahArab.numberInSurah)}
+                                        />
+                                    ) : (
+                                        <PlayIcon
+                                            className="w-8 h-8 p-1 bg-red-500 border border-red-500 text-white rounded-full"
+                                            onClick={() => handlePlayAudio(ayahArab?.audio, ayahArab.numberInSurah)}
+                                        />
+                                    )}
+                                    <p className="ml-3 text-black">mp3</p>
+                                </div>
+                                <div className="flex flex-col justify-end items-end text-[#1f3352] w-full mt-10 mb-4">
+                                    <h3 className="text-[16px] w-[80%] font-bold">{ayahArab?.text}</h3>
+                                </div>
+                                <div className="pb-6 text-[#1f3352] w-full">
+                                    <h3 className="text-[14px] font-medium">{ayahText?.text}</h3>
+                                    <p className="text-[14px] text-slate-500">
+                                        Ayat: {ayahText?.numberInSurah} - Juz: {data?.juz}
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
                     );
                 })}

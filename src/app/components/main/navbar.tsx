@@ -62,7 +62,7 @@ const Navbar = () => {
         };
     }, []);
     return (
-        <nav className='absolute duration-300 top-0 left-0 w-full z-[999999999] flex items-center justify-between gap-10 h-max bg-white/10 backdrop-blur-xl py-2 px-4 md:px-[40px]'>
+        <nav className='absolute duration-300 top-0 left-0 w-full z-[999999999] flex items-center justify-between gap-10 h-max bg-white/10 backdrop-blur-xl py-4 md:py-2 px-4 md:px-[40px]'>
             <div className="flex items-center w-max text-white gap-10">
                 <p className="md:hidden flex">Online</p>
 
@@ -109,24 +109,8 @@ const Navbar = () => {
             </div>
 
             <div className="text-white flex-1 justify-end gap-6 flex overflow-hidden items-center">
-                <div className={`animate-fadeIn overflow-hidden active:scale-[0.99] flex items-center outline-0 justify-between gap-1 duration-300 ease-in-out rounded-full px-4 w-[300px] py-2 text-left text-sm/6 bg-white/5 text-white/50`}>
-                    <div onClick={() => setActiveModalSearch(true)} className={`flex-1 duration-200 delay-100 items-center gap-2 flex opacity-1`}>
-                        <p className='w-max mr-20'>
-                            Quick search
-                        </p>
-                    </div>
-                    <div className="w-max gap-2 font-sans flex items-center text-[13px] text-white dark:text-gray-400 [.os-macos_&amp;]:block">
-                        <div className='flex text-white items-center w-max gap-2'>
-                            <p onClick={() => setActiveSearch(true)}>
-                                Ctrl + k
-                            </p>
-                            <p>/</p>
-                        </div>
-                        <Search01Icon onClick={() => setActiveSearch(!activeSearch)} className="w-4 h-4 text-white" />
-                    </div>
-                </div>
                 <div className="w-max h-max">
-                    <Link href={'https://github.com/khoirulhudaa'} target='__blank' className="ml-auto" rel="noopener noreferrer" aria-label="My GitHub">
+                    <Link href={'https://github.com/khoirulhudaa/alquran-jannah'} target='__blank' className="ml-auto" rel="noopener noreferrer" aria-label="My GitHub">
                         <Github01Icon size={30} className="animate-fadeIn delay-[1000ms]" />
                     </Link>
                 </div>
