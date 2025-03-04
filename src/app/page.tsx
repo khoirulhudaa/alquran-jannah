@@ -84,12 +84,14 @@ export default function Home() {
           </p>
           <div className="flex items-center gap-6 w-max mx-auto mt-10">
             {data?.slice(0, 4)?.map((surah, index) => (
-              <div
-                key={index}
-                className="px-3 py-2 rounded-md bg-green-500 text-white text-[16px] font-normal cursor-pointer active:scale-[0.99] duration-100 hover:brightness-75"
-              >
-                {surah?.englishName}
-              </div>
+              <Link key={index} href={`/${surah?.number}`}>
+                <div
+                  key={index}
+                  className="px-3 py-2 rounded-md bg-green-500 text-white text-[16px] font-normal cursor-pointer active:scale-[0.99] duration-100 hover:brightness-75"
+                >
+                  {surah?.englishName}
+                </div>
+              </Link>
             ))}
           </div>
         </div>
